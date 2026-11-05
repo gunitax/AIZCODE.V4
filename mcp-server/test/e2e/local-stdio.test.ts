@@ -75,7 +75,7 @@ test(
       command: process.execPath,
       args: [scriptPath],
       cwd: mcpServerDir,
-      env: { ...process.env },
+      env: { ...process.env } as Record<string, string>,
     });
     const client = new Client({ name: 'objects-smoke', version: '0.1.0' });
     try {
