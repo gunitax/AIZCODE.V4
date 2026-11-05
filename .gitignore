@@ -6,3 +6,4 @@ desktop.ini
 mcp-server/node_modules/
 mcp-server/build/
 src/tests/.env
+.superpowers/
