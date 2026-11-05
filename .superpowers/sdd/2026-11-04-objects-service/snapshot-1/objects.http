@@ -1,0 +1,25 @@
+# Запросы к сервису objects. Адрес, авторизация и идентификаторы — в .env рядом.
+# Пока обработчики не реализованы, каждый запрос отвечает 501.
+
+### Найти тип по слову
+GET {{$dotenv OBJECTS_URL}}/types?q=счет
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Описать тип
+GET {{$dotenv OBJECTS_URL}}/type?name=Документ._ДемоСчетНаОплатуПокупателю
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Найти объекты типа
+GET {{$dotenv OBJECTS_URL}}/search?type=Справочник._ДемоПартнеры&q=Альфа
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Прочитать объект
+GET {{$dotenv OBJECTS_URL}}/object?type=Справочник._ДемоПартнеры&id={{$dotenv PARTNER_ID}}
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Создать объект — тело запроса задаёт ваша спецификация
+POST {{$dotenv OBJECTS_URL}}/object
+Authorization: {{$dotenv OBJECTS_AUTH}}
+Content-Type: application/json
+
+{}

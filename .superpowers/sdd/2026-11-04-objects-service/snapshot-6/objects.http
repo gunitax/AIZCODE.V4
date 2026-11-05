@@ -1,0 +1,138 @@
+﻿# Запросы к сервису objects. Адрес, авторизация и идентификаторы — в .env рядом.
+
+### Найти тип — все виды
+GET {{$dotenv OBJECTS_URL}}/types
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Найти тип по слову «валют»
+GET {{$dotenv OBJECTS_URL}}/types?q=валют
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Найти тип по слову «поступлен»
+GET {{$dotenv OBJECTS_URL}}/types?q=поступлен
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Описать тип — справочник
+GET {{$dotenv OBJECTS_URL}}/type?name=Справочник._ДемоПартнеры
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Описать тип — документ
+GET {{$dotenv OBJECTS_URL}}/type?name=Документ._ДемоСчетНаОплатуПокупателю
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Описать тип — служебный справочник вне допуска
+GET {{$dotenv OBJECTS_URL}}/type?name=Справочник.Пользователи
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Описать тип — неизвестный тип
+GET {{$dotenv OBJECTS_URL}}/type?name=ТакогоНет
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Найти объекты — по наименованию
+GET {{$dotenv OBJECTS_URL}}/search?type=Справочник._ДемоПартнеры&q=Альфа
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Найти объекты — символы шаблона литеральные
+GET {{$dotenv OBJECTS_URL}}/search?type=Справочник._ДемоПартнеры&q=%
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Найти объекты — limit меньше минимума
+GET {{$dotenv OBJECTS_URL}}/search?type=Справочник._ДемоПартнеры&q=Альфа&limit=0
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Найти объекты — limit больше максимума
+GET {{$dotenv OBJECTS_URL}}/search?type=Справочник._ДемоПартнеры&q=Альфа&limit=101
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Найти объекты — limit не число
+GET {{$dotenv OBJECTS_URL}}/search?type=Справочник._ДемоПартнеры&q=Альфа&limit=abc
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Найти объекты — без строки поиска
+GET {{$dotenv OBJECTS_URL}}/search?type=Справочник._ДемоПартнеры
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Найти объекты — неизвестный тип
+GET {{$dotenv OBJECTS_URL}}/search?type=ТакогоНет&q=а
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Найти объекты — служебный читаемый справочник
+GET {{$dotenv OBJECTS_URL}}/search?type=Справочник.Пользователи&q=а
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Найти объекты — документ по номеру
+GET {{$dotenv OBJECTS_URL}}/search?type=Документ._ДемоРеализацияТоваров&q=0&limit=1
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Прочитать объект — справочник
+GET {{$dotenv OBJECTS_URL}}/object?type=Справочник._ДемоПартнеры&id={{$dotenv PARTNER_ID}}
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Прочитать объект — UUID в верхнем регистре
+GET {{$dotenv OBJECTS_URL}}/object?type=Справочник._ДемоПартнеры&id=9203492B-EA3E-11DE-8634-001D600D9AD2
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Прочитать объект — нулевой UUID
+GET {{$dotenv OBJECTS_URL}}/object?type=Справочник._ДемоПартнеры&id=00000000-0000-0000-0000-000000000000
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Прочитать объект — id не UUID
+GET {{$dotenv OBJECTS_URL}}/object?type=Справочник._ДемоПартнеры&id=abc
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Прочитать объект — неизвестный тип
+GET {{$dotenv OBJECTS_URL}}/object?type=ТакогоНет&id={{$dotenv PARTNER_ID}}
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Создать объект — счет на оплату покупателю
+POST {{$dotenv OBJECTS_URL}}/object
+Authorization: {{$dotenv OBJECTS_AUTH}}
+Content-Type: application/json
+
+{"type":"Документ._ДемоСчетНаОплатуПокупателю","header":{"Дата":"2026-11-04T12:00:00","Организация":"{{$dotenv ORGANIZATION_ID}}","Партнер":"{{$dotenv PARTNER_ID}}","Контрагент":"{{$dotenv COUNTERPARTY_ID}}","Подразделение":"{{$dotenv DEPARTMENT_ID}}","Ответственный":"{{$dotenv RESPONSIBLE_ID}}","ВалютаДокумента":"{{$dotenv CURRENCY_ID}}"},"tables":{"Товары":[{"Номенклатура":"{{$dotenv PRODUCT_ID}}","Цена":100,"Сумма":100,"Всего":100}]}}
+
+### Создать объект — найти созданный счет по номеру (номер контрольного примера)
+GET {{$dotenv OBJECTS_URL}}/search?type=Документ._ДемоСчетНаОплатуПокупателю&q=00-00000003
+Authorization: {{$dotenv OBJECTS_AUTH}}
+
+### Создать объект — справочник Партнеры (ВидПартнера обязателен по схеме)
+POST {{$dotenv OBJECTS_URL}}/object
+Authorization: {{$dotenv OBJECTS_AUTH}}
+Content-Type: application/json
+
+{"type":"Справочник._ДемоПартнеры","header":{"Наименование":"Тестовый партнер HTTP","ВидПартнера":"ЮридическоеЛицо"},"tables":{}}
+
+### Создать объект — справочник вне _Демо, из списка допуска (201: автонумерации нет, Код записываем)
+POST {{$dotenv OBJECTS_URL}}/object
+Authorization: {{$dotenv OBJECTS_AUTH}}
+Content-Type: application/json
+
+{"type":"Справочник.Валюты","header":{"Код":"T9","Наименование":"ТестHTTP","НаименованиеПолное":"Тестовая валюта HTTP","СпособУстановкиКурса":"ЗагрузкаИзИнтернета"},"tables":{}}
+
+### Создать объект — служебный вид вне допуска
+POST {{$dotenv OBJECTS_URL}}/object
+Authorization: {{$dotenv OBJECTS_AUTH}}
+Content-Type: application/json
+
+{"type":"Справочник.Пользователи","header":{},"tables":{}}
+
+### Отказ по обязательному полю — счет без Организация
+POST {{$dotenv OBJECTS_URL}}/object
+Authorization: {{$dotenv OBJECTS_AUTH}}
+Content-Type: application/json
+
+{"type":"Документ._ДемоСчетНаОплатуПокупателю","header":{"Дата":"2026-11-04T12:00:00","Партнер":"{{$dotenv PARTNER_ID}}","Контрагент":"{{$dotenv COUNTERPARTY_ID}}","Подразделение":"{{$dotenv DEPARTMENT_ID}}","Ответственный":"{{$dotenv RESPONSIBLE_ID}}","ВалютаДокумента":"{{$dotenv CURRENCY_ID}}"},"tables":{"Товары":[{"Номенклатура":"{{$dotenv PRODUCT_ID}}","Цена":100,"Сумма":100,"Всего":100}]}}
+
+### Отказ — дата со смещением зоны Z
+POST {{$dotenv OBJECTS_URL}}/object
+Authorization: {{$dotenv OBJECTS_AUTH}}
+Content-Type: application/json
+
+{"type":"Документ._ДемоСчетНаОплатуПокупателю","header":{"Дата":"2026-01-01T00:00:00Z","Организация":"{{$dotenv ORGANIZATION_ID}}","Партнер":"{{$dotenv PARTNER_ID}}","Контрагент":"{{$dotenv COUNTERPARTY_ID}}","Подразделение":"{{$dotenv DEPARTMENT_ID}}","Ответственный":"{{$dotenv RESPONSIBLE_ID}}","ВалютаДокумента":"{{$dotenv CURRENCY_ID}}"},"tables":{"Товары":[{"Номенклатура":"{{$dotenv PRODUCT_ID}}","Цена":100,"Сумма":100,"Всего":100}]}}
+
+### Отказ — неизвестное поле шапки
+POST {{$dotenv OBJECTS_URL}}/object
+Authorization: {{$dotenv OBJECTS_AUTH}}
+Content-Type: application/json
+
+{"type":"Документ._ДемоСчетНаОплатуПокупателю","header":{"Дата":"2026-11-04T12:00:00","Организация":"{{$dotenv ORGANIZATION_ID}}","Партнер":"{{$dotenv PARTNER_ID}}","Контрагент":"{{$dotenv COUNTERPARTY_ID}}","Подразделение":"{{$dotenv DEPARTMENT_ID}}","Ответственный":"{{$dotenv RESPONSIBLE_ID}}","ВалютаДокумента":"{{$dotenv CURRENCY_ID}}","ЛожноеПоле":"тест"},"tables":{"Товары":[{"Номенклатура":"{{$dotenv PRODUCT_ID}}","Цена":100,"Сумма":100,"Всего":100}]}}

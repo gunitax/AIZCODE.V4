@@ -1,0 +1,76 @@
+﻿=== objects.http ===
+ ...ects.http" => "Q:\\AIZCODE.DZ3\\src\\tests\\objects.http" | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+diff --git "a/Q:\\AIZCODE.DZ3\\.superpowers\\sdd\\2026-11-04-objects-service\\snapshot-6\\objects.http" "b/Q:\\AIZCODE.DZ3\\src\\tests\\objects.http"
+index 3132efd..1f0a292 100644
+--- "a/Q:\\AIZCODE.DZ3\\.superpowers\\sdd\\2026-11-04-objects-service\\snapshot-6\\objects.http"
++++ "b/Q:\\AIZCODE.DZ3\\src\\tests\\objects.http"
+@@ -41,20 +41,24 @@ GET {{$dotenv OBJECTS_URL}}/search?type=Справочник._ДемоПартн
+ Authorization: {{$dotenv OBJECTS_AUTH}}
+ 
+ ### Найти объекты — limit больше максимума
+ GET {{$dotenv OBJECTS_URL}}/search?type=Справочник._ДемоПартнеры&q=Альфа&limit=101
+ Authorization: {{$dotenv OBJECTS_AUTH}}
+ 
+ ### Найти объекты — limit не число
+ GET {{$dotenv OBJECTS_URL}}/search?type=Справочник._ДемоПартнеры&q=Альфа&limit=abc
+ Authorization: {{$dotenv OBJECTS_AUTH}}
+ 
++### Найти объекты — limit пустой (пустое значение = дефолт 20)
++GET {{$dotenv OBJECTS_URL}}/search?type=Справочник._ДемоПартнеры&q=Альфа&limit=
++Authorization: {{$dotenv OBJECTS_AUTH}}
++
+ ### Найти объекты — без строки поиска
+ GET {{$dotenv OBJECTS_URL}}/search?type=Справочник._ДемоПартнеры
+ Authorization: {{$dotenv OBJECTS_AUTH}}
+ 
+ ### Найти объекты — неизвестный тип
+ GET {{$dotenv OBJECTS_URL}}/search?type=ТакогоНет&q=а
+ Authorization: {{$dotenv OBJECTS_AUTH}}
+ 
+ ### Найти объекты — служебный читаемый справочник
+ GET {{$dotenv OBJECTS_URL}}/search?type=Справочник.Пользователи&q=а
+@@ -84,37 +88,37 @@ Authorization: {{$dotenv OBJECTS_AUTH}}
+ GET {{$dotenv OBJECTS_URL}}/object?type=ТакогоНет&id={{$dotenv PARTNER_ID}}
+ Authorization: {{$dotenv OBJECTS_AUTH}}
+ 
+ ### Создать объект — счет на оплату покупателю
+ POST {{$dotenv OBJECTS_URL}}/object
+ Authorization: {{$dotenv OBJECTS_AUTH}}
+ Content-Type: application/json
+ 
+ {"type":"Документ._ДемоСчетНаОплатуПокупателю","header":{"Дата":"2026-11-04T12:00:00","Организация":"{{$dotenv ORGANIZATION_ID}}","Партнер":"{{$dotenv PARTNER_ID}}","Контрагент":"{{$dotenv COUNTERPARTY_ID}}","Подразделение":"{{$dotenv DEPARTMENT_ID}}","Ответственный":"{{$dotenv RESPONSIBLE_ID}}","ВалютаДокумента":"{{$dotenv CURRENCY_ID}}"},"tables":{"Товары":[{"Номенклатура":"{{$dotenv PRODUCT_ID}}","Цена":100,"Сумма":100,"Всего":100}]}}
+ 
+-### Создать объект — найти созданный счет по номеру (номер контрольного примера)
+-GET {{$dotenv OBJECTS_URL}}/search?type=Документ._ДемоСчетНаОплатуПокупателю&q=00-00000003
++### Создать объект — найти счет по номеру (номер контрольного счета этапа 5)
++GET {{$dotenv OBJECTS_URL}}/search?type=Документ._ДемоСчетНаОплатуПокупателю&q=00-00000005
+ Authorization: {{$dotenv OBJECTS_AUTH}}
+ 
+ ### Создать объект — справочник Партнеры (ВидПартнера обязателен по схеме)
+ POST {{$dotenv OBJECTS_URL}}/object
+ Authorization: {{$dotenv OBJECTS_AUTH}}
+ Content-Type: application/json
+ 
+ {"type":"Справочник._ДемоПартнеры","header":{"Наименование":"Тестовый партнер HTTP","ВидПартнера":"ЮридическоеЛицо"},"tables":{}}
+ 
+-### Создать объект — справочник вне _Демо, из списка допуска (201: автонумерации нет, Код записываем)
++### Создать объект — справочник вне _Демо, из списка допуска (201: автонумерации нет, Код записываем; Код/Наименование свежие уникальные — T9 уже занят)
+ POST {{$dotenv OBJECTS_URL}}/object
+ Authorization: {{$dotenv OBJECTS_AUTH}}
+ Content-Type: application/json
+ 
+-{"type":"Справочник.Валюты","header":{"Код":"T9","Наименование":"ТестHTTP","НаименованиеПолное":"Тестовая валюта HTTP","СпособУстановкиКурса":"ЗагрузкаИзИнтернета"},"tables":{}}
++{"type":"Справочник.Валюты","header":{"Код":"TA","Наименование":"ТестHTTP3","НаименованиеПолное":"Тестовая валюта HTTP 3","СпособУстановкиКурса":"ЗагрузкаИзИнтернета"},"tables":{}}
+ 
+ ### Создать объект — служебный вид вне допуска
+ POST {{$dotenv OBJECTS_URL}}/object
+ Authorization: {{$dotenv OBJECTS_AUTH}}
+ Content-Type: application/json
+ 
+ {"type":"Справочник.Пользователи","header":{},"tables":{}}
+ 
+ ### Отказ по обязательному полю — счет без Организация
+ POST {{$dotenv OBJECTS_URL}}/object
+=== build artifact ===
+build\СчетаМагазина.cfe exists: True; size: 16726

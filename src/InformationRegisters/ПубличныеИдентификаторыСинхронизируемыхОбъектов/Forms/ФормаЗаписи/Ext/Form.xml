@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<WindowOpeningMode>LockOwner</WindowOpeningMode>
+	<Group>Vertical</Group>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="УзелИнформационнойБазы" id="1">
+			<DataPath>Запись.УзелИнформационнойБазы</DataPath>
+			<ContextMenu name="УзелИнформационнойБазыКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="УзелИнформационнойБазыРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Ссылка" id="4">
+			<DataPath>Запись.Ссылка</DataPath>
+			<ContextMenu name="СсылкаКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Идентификатор" id="7">
+			<DataPath>ИдентификаторСтрокой</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор строкой</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="ИдентификаторКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<InputField name="ОбъектФормата" id="13">
+			<DataPath>Запись.ОбъектФормата</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ОбъектФорматаКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="ОбъектФорматаРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<LabelField name="СсылкаВнешняяНавигационная" id="17">
+			<DataPath>Запись.СсылкаВнешняяНавигационная</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<Hiperlink>true</Hiperlink>
+			<ContextMenu name="СсылкаВнешняяНавигационнаяКонтекстноеМеню" id="18"/>
+			<ExtendedTooltip name="СсылкаВнешняяНавигационнаяРасширеннаяПодсказка" id="19"/>
+			<Events>
+				<Event name="Click">СсылкаВнешняяНавигационнаяНажатие</Event>
+			</Events>
+		</LabelField>
+		<InputField name="Основной" id="21">
+			<DataPath>Запись.Основной</DataPath>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ОсновнойКонтекстноеМеню" id="22"/>
+			<ExtendedTooltip name="ОсновнойРасширеннаяПодсказка" id="23">
+				<Title formatted="false">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Опция влияет на отправку ссылок, которым назначено более одного соответствия. При отправке будет использоваться основной идентификатор, если основной не указан то, первый выбранный. В предыдущих версиях, при нахождении нескольких записей для одной ссылки сопоставление чистилось (записи для ссылки удалялись).</v8:content>
+					</v8:item>
+				</Title>
+			</ExtendedTooltip>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.ПубличныеИдентификаторыСинхронизируемыхОбъектов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ИдентификаторСтрокой" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор строкой</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

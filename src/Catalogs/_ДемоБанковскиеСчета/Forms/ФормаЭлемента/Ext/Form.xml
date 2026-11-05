@@ -1,0 +1,992 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Основное" id="296">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основное</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AutoScreenTypeSensitive</Group>
+			<HorizontalSpacing>Double</HorizontalSpacing>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ОсновноеРасширеннаяПодсказка" id="297"/>
+			<ChildItems>
+				<Pages name="Страницы" id="286">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страницы</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="287"/>
+					<ChildItems>
+						<Page name="СтраницаГлавное" id="306">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Главное</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AutoScreenTypeSensitive</Group>
+							<HorizontalSpacing>Double</HorizontalSpacing>
+							<ScrollOnCompress>true</ScrollOnCompress>
+							<ExtendedTooltip name="СтраницаГлавноеРасширеннаяПодсказка" id="307"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаОсновныеСведения" id="304">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Основные сведения</v8:content>
+										</v8:item>
+									</Title>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОсновныеСведенияРасширеннаяПодсказка" id="305"/>
+									<ChildItems>
+										<InputField name="Наименование" id="37">
+											<DataPath>Объект.Description</DataPath>
+											<EditMode>Directly</EditMode>
+											<ContextMenu name="НаименованиеКонтекстноеМеню" id="38"/>
+											<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="123"/>
+										</InputField>
+										<InputField name="Владелец" id="63">
+											<DataPath>Объект.Owner</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Владелец</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>Directly</EditMode>
+											<ContextMenu name="ВладелецКонтекстноеМеню" id="64"/>
+											<ExtendedTooltip name="ВладелецРасширеннаяПодсказка" id="122"/>
+											<Events>
+												<Event name="OnChange">ВладелецПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="НомерСчета" id="9">
+											<DataPath>Объект.НомерСчета</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<Wrap>false</Wrap>
+											<ContextMenu name="НомерСчетаКонтекстноеМеню" id="10"/>
+											<ExtendedTooltip name="НомерСчетаРасширеннаяПодсказка" id="125"/>
+										</InputField>
+										<InputField name="Валюта" id="7">
+											<DataPath>Объект.Валюта</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<Wrap>false</Wrap>
+											<QuickChoice>true</QuickChoice>
+											<ContextMenu name="ВалютаКонтекстноеМеню" id="8"/>
+											<ExtendedTooltip name="ВалютаРасширеннаяПодсказка" id="127"/>
+											<Events>
+												<Event name="OnChange">ВалютаПриИзменении</Event>
+											</Events>
+										</InputField>
+										<RadioButtonField name="МестоОткрытия" id="167">
+											<DataPath>МестоОткрытия</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Счет открыт</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>Directly</EditMode>
+											<RadioButtonType>Tumbler</RadioButtonType>
+											<HorizontalStretch>true</HorizontalStretch>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>в Российской Федерации</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">РФ</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>за рубежом</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">ЗаРубежом</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="МестоОткрытияКонтекстноеМеню" id="168"/>
+											<ExtendedTooltip name="МестоОткрытияРасширеннаяПодсказка" id="169"/>
+											<Events>
+												<Event name="OnChange">МестоОткрытияПриИзменении</Event>
+											</Events>
+										</RadioButtonField>
+										<InputField name="Комментарий" id="101">
+											<DataPath>Объект.Комментарий</DataPath>
+											<EditMode>Directly</EditMode>
+											<Height>1</Height>
+											<MultiLine>false</MultiLine>
+											<ContextMenu name="КомментарийКонтекстноеМеню" id="102"/>
+											<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="164"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаСведенияОБанке" id="300">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сведения о банке</v8:content>
+										</v8:item>
+									</Title>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаСведенияОБанкеРасширеннаяПодсказка" id="301"/>
+									<ChildItems>
+										<Pages name="СтраницыКодыБанка" id="196">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Коды банка</v8:content>
+												</v8:item>
+											</Title>
+											<PagesRepresentation>None</PagesRepresentation>
+											<ExtendedTooltip name="СтраницыКодыБанкаРасширеннаяПодсказка" id="197"/>
+											<ChildItems>
+												<Page name="СтраницаКодыБанкаРоссийскогоСчета" id="39">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Коды банка российского счета</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<ExtendedTooltip name="СтраницаКодыБанкаРоссийскогоСчетаРасширеннаяПодсказка" id="131"/>
+													<ChildItems>
+														<InputField name="БИКБанка" id="40">
+															<DataPath>БИКБанка</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Национальный БИК</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>Directly</EditMode>
+															<OpenButton>true</OpenButton>
+															<ContextMenu name="БИКБанкаКонтекстноеМеню" id="41"/>
+															<ExtendedTooltip name="БИКБанкаРасширеннаяПодсказка" id="132"/>
+															<Events>
+																<Event name="OnChange">РеквизитБанкаПриИзменении</Event>
+																<Event name="StartChoice">БИКБанкаНачалоВыбора</Event>
+																<Event name="Opening">БИКБанкаОткрытие</Event>
+															</Events>
+														</InputField>
+														<InputField name="СВИФТБИК" id="174">
+															<DataPath>СВИФТБИК</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>СВИФТ БИК</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<ContextMenu name="СВИФТБИККонтекстноеМеню" id="175"/>
+															<ExtendedTooltip name="СВИФТБИКРасширеннаяПодсказка" id="176"/>
+														</InputField>
+													</ChildItems>
+												</Page>
+												<Page name="СтраницаКодыБанкаЗарубежногоСчета" id="188">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Коды банка зарубежного счета</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<ExtendedTooltip name="СтраницаКодыБанкаЗарубежногоСчетаРасширеннаяПодсказка" id="189"/>
+													<ChildItems>
+														<InputField name="СВИФТБИКЗарубежногоСчета" id="193">
+															<DataPath>СВИФТБИК</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>СВИФТ БИК</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<ContextMenu name="СВИФТБИКЗарубежногоСчетаКонтекстноеМеню" id="194"/>
+															<ExtendedTooltip name="СВИФТБИКЗарубежногоСчетаРасширеннаяПодсказка" id="195"/>
+														</InputField>
+														<InputField name="БИКБанкаЗарубежногоСчета" id="190">
+															<DataPath>БИКБанка</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Национальный БИК</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<OpenButton>true</OpenButton>
+															<ContextMenu name="БИКБанкаЗарубежногоСчетаКонтекстноеМеню" id="191"/>
+															<ExtendedTooltip name="БИКБанкаЗарубежногоСчетаРасширеннаяПодсказка" id="192"/>
+															<Events>
+																<Event name="OnChange">РеквизитБанкаПриИзменении</Event>
+																<Event name="StartChoice">БИКБанкаНачалоВыбора</Event>
+																<Event name="Opening">БИКБанкаОткрытие</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</Page>
+											</ChildItems>
+										</Pages>
+										<UsualGroup name="ГруппаВажноеСообщение" id="274">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Важное сообщение</v8:content>
+												</v8:item>
+											</Title>
+											<Group>AlwaysHorizontal</Group>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаВажноеСообщениеРасширеннаяПодсказка" id="275"/>
+										</UsualGroup>
+										<RadioButtonField name="СпособУказанияРеквизитовБанка" id="218">
+											<DataPath>СпособУказанияРеквизитовБанка</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Реквизиты банка</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<RadioButtonType>Tumbler</RadioButtonType>
+											<ColumnsCount>2</ColumnsCount>
+											<HorizontalStretch>true</HorizontalStretch>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>из классификатора</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">ИзКлассификатора</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>указываются вручную</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">Вручную</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="СпособУказанияРеквизитовБанкаКонтекстноеМеню" id="219"/>
+											<ExtendedTooltip name="СпособУказанияРеквизитовБанкаРасширеннаяПодсказка" id="220"/>
+											<Events>
+												<Event name="OnChange">СпособУказанияРеквизитовБанкаПриИзменении</Event>
+											</Events>
+										</RadioButtonField>
+										<UsualGroup name="ГруппаРеквизитыБанка" id="221">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Реквизиты банка</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<United>false</United>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаРеквизитыБанкаРасширеннаяПодсказка" id="222"/>
+											<ChildItems>
+												<InputField name="НаименованиеБанка" id="71">
+													<DataPath>НаименованиеБанка</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Наименование</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Наименование банка, в котором открыт счет</v8:content>
+														</v8:item>
+													</ToolTip>
+													<EditMode>Directly</EditMode>
+													<ContextMenu name="НаименованиеБанкаКонтекстноеМеню" id="72"/>
+													<ExtendedTooltip name="НаименованиеБанкаРасширеннаяПодсказка" id="140"/>
+												</InputField>
+												<InputField name="ГородБанка" id="73">
+													<DataPath>ГородБанка</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Город</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Город банка, в котором открыт счет</v8:content>
+														</v8:item>
+													</ToolTip>
+													<EditMode>Directly</EditMode>
+													<ContextMenu name="ГородБанкаКонтекстноеМеню" id="74"/>
+													<ExtendedTooltip name="ГородБанкаРасширеннаяПодсказка" id="141"/>
+												</InputField>
+												<InputField name="КоррСчетБанка" id="42">
+													<DataPath>КоррСчетБанка</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Корреспондентский счет</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Корр. счет банка,  в котором открыт счет</v8:content>
+														</v8:item>
+													</ToolTip>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<ContextMenu name="КоррСчетБанкаКонтекстноеМеню" id="43"/>
+													<ExtendedTooltip name="КоррСчетБанкаРасширеннаяПодсказка" id="139"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+						<Page name="СтраницаБанкДляРасчетов" id="298">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Банк для расчетов</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<ScrollOnCompress>true</ScrollOnCompress>
+							<ExtendedTooltip name="СтраницаБанкДляРасчетовРасширеннаяПодсказка" id="299"/>
+							<ChildItems>
+								<CheckBoxField name="ИспользуетсяБанкДляНепрямыхРасчетов" id="44">
+									<DataPath>ИспользуетсяБанкДляРасчетов</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Банк для непрямых расчетов</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<EditMode>Directly</EditMode>
+									<CheckBoxType>Switcher</CheckBoxType>
+									<ContextMenu name="ИспользуетсяБанкДляНепрямыхРасчетовКонтекстноеМеню" id="45"/>
+									<ExtendedTooltip name="ИспользуетсяБанкДляНепрямыхРасчетовРасширеннаяПодсказка" id="142">
+										<Title formatted="false">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Банк, в котором открыт счет, проводит платежи через корреспондентский счет, открытый в другом банке (банке для расчетов).</v8:content>
+											</v8:item>
+										</Title>
+									</ExtendedTooltip>
+									<Events>
+										<Event name="OnChange">ИспользуетсяБанкДляРасчетовПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<UsualGroup name="ГруппаСведенияОБанкеДляРасчетов" id="302">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сведения о банке для расчетов</v8:content>
+										</v8:item>
+									</Title>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаСведенияОБанкеДляРасчетовРасширеннаяПодсказка" id="303"/>
+									<ChildItems>
+										<Pages name="СтраницыКодыБанкаДляРасчетов" id="206">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Коды банка для расчетов</v8:content>
+												</v8:item>
+											</Title>
+											<PagesRepresentation>None</PagesRepresentation>
+											<ExtendedTooltip name="СтраницыКодыБанкаДляРасчетовРасширеннаяПодсказка" id="207"/>
+											<ChildItems>
+												<Page name="СтраницаКодыБанкаДляРасчетовРублевогоСчета" id="49">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Коды банка для расчетов рублевого счета</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<ExtendedTooltip name="СтраницаКодыБанкаДляРасчетовРублевогоСчетаРасширеннаяПодсказка" id="148"/>
+													<ChildItems>
+														<InputField name="БИКБанкаДляРасчетов" id="50">
+															<DataPath>БИКБанкаДляРасчетов</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Национальный БИК</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<OpenButton>true</OpenButton>
+															<ContextMenu name="БИКБанкаДляРасчетовКонтекстноеМеню" id="51"/>
+															<ExtendedTooltip name="БИКБанкаДляРасчетовРасширеннаяПодсказка" id="149"/>
+															<Events>
+																<Event name="OnChange">РеквизитБанкаПриИзменении</Event>
+																<Event name="StartChoice">БИКБанкаДляРасчетовНачалоВыбора</Event>
+																<Event name="Opening">БИКБанкаДляРасчетовОткрытие</Event>
+															</Events>
+														</InputField>
+														<InputField name="СВИФТБИКДляРасчетов" id="177">
+															<DataPath>СВИФТБИКДляРасчетов</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>СВИФТ БИК</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<ContextMenu name="СВИФТБИКДляРасчетовКонтекстноеМеню" id="178"/>
+															<ExtendedTooltip name="СВИФТБИКДляРасчетовРасширеннаяПодсказка" id="179"/>
+														</InputField>
+													</ChildItems>
+												</Page>
+												<Page name="СтраницаКодыБанкаДляРасчетовВалютногоСчета" id="198">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Коды банка для расчетов валютного счета</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<ExtendedTooltip name="СтраницаКодыБанкаДляРасчетовВалютногоСчетаРасширеннаяПодсказка" id="199"/>
+													<ChildItems>
+														<InputField name="СВИФТБИКДляРасчетовВалютногоСчета" id="203">
+															<DataPath>СВИФТБИКДляРасчетов</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>СВИФТ БИК</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>Directly</EditMode>
+															<ContextMenu name="СВИФТБИКДляРасчетовВалютногоСчетаКонтекстноеМеню" id="204"/>
+															<ExtendedTooltip name="СВИФТБИКДляРасчетовВалютногоСчетаРасширеннаяПодсказка" id="205"/>
+														</InputField>
+														<InputField name="БИКБанкаДляРасчетовВалютногоСчета" id="200">
+															<DataPath>БИКБанкаДляРасчетов</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Национальный БИК</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<OpenButton>true</OpenButton>
+															<ContextMenu name="БИКБанкаДляРасчетовВалютногоСчетаКонтекстноеМеню" id="201"/>
+															<ExtendedTooltip name="БИКБанкаДляРасчетовВалютногоСчетаРасширеннаяПодсказка" id="202"/>
+															<Events>
+																<Event name="OnChange">РеквизитБанкаПриИзменении</Event>
+																<Event name="StartChoice">БИКБанкаДляРасчетовНачалоВыбора</Event>
+																<Event name="Opening">БИКБанкаДляРасчетовОткрытие</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</Page>
+											</ChildItems>
+										</Pages>
+										<UsualGroup name="ГруппаВажноеСообщениеДляРасчетов" id="284">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Важное сообщение для расчетов</v8:content>
+												</v8:item>
+											</Title>
+											<Group>AlwaysHorizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаВажноеСообщениеДляРасчетовРасширеннаяПодсказка" id="285"/>
+										</UsualGroup>
+										<RadioButtonField name="СпособУказанияРеквизитовБанкаДляРасчетов" id="223">
+											<DataPath>СпособУказанияРеквизитовБанкаРасчетов</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Реквизиты банка</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<RadioButtonType>Tumbler</RadioButtonType>
+											<ColumnsCount>2</ColumnsCount>
+											<HorizontalStretch>true</HorizontalStretch>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>из классификатора</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">ИзКлассификатора</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>указываются вручную</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">Вручную</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="СпособУказанияРеквизитовБанкаДляРасчетовКонтекстноеМеню" id="224"/>
+											<ExtendedTooltip name="СпособУказанияРеквизитовБанкаДляРасчетовРасширеннаяПодсказка" id="225"/>
+											<Events>
+												<Event name="OnChange">СпособУказанияРеквизитовБанкаРасчетовПриИзменении</Event>
+											</Events>
+										</RadioButtonField>
+										<UsualGroup name="ГруппаРеквизитыБанкаДляРасчетов" id="226">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Реквизиты банка для расчетов</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<United>false</United>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаРеквизитыБанкаДляРасчетовРасширеннаяПодсказка" id="227"/>
+											<ChildItems>
+												<InputField name="НаименованиеБанкаДляРасчетов" id="75">
+													<DataPath>НаименованиеБанкаДляРасчетов</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Наименование</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Наименование банка, в случае непрямых расчетов</v8:content>
+														</v8:item>
+													</ToolTip>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<ContextMenu name="НаименованиеБанкаДляРасчетовКонтекстноеМеню" id="76"/>
+													<ExtendedTooltip name="НаименованиеБанкаДляРасчетовРасширеннаяПодсказка" id="157"/>
+												</InputField>
+												<InputField name="ГородБанкаДляРасчетов" id="77">
+													<DataPath>ГородБанкаДляРасчетов</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Город</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Город банка, в случае непрямых расчетов</v8:content>
+														</v8:item>
+													</ToolTip>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<ContextMenu name="ГородБанкаДляРасчетовКонтекстноеМеню" id="78"/>
+													<ExtendedTooltip name="ГородБанкаДляРасчетовРасширеннаяПодсказка" id="158"/>
+												</InputField>
+												<InputField name="КоррСчетБанкаДляРасчетов" id="52">
+													<DataPath>КоррСчетБанкаДляРасчетов</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Корреспондентский счет</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Корр. счет банка, в случае непрямых расчетов</v8:content>
+														</v8:item>
+													</ToolTip>
+													<EditMode>Directly</EditMode>
+													<ContextMenu name="КоррСчетБанкаДляРасчетовКонтекстноеМеню" id="53"/>
+													<ExtendedTooltip name="КоррСчетБанкаДляРасчетовРасширеннаяПодсказка" id="156"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+						<Page name="СтраницаНастройкаПечати" id="85" DisplayImportance="VeryHigh">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройка печати</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<ScrollOnCompress>true</ScrollOnCompress>
+							<ExtendedTooltip name="СтраницаНастройкаПечатиРасширеннаяПодсказка" id="159"/>
+							<ChildItems>
+								<TextDocumentField name="ТекстНазначенияПлатежа" id="90">
+									<DataPath>Объект.ТекстНазначенияПлатежа</DataPath>
+									<EditMode>Directly</EditMode>
+									<Width>40</Width>
+									<Height>5</Height>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ТекстНазначенияПлатежаКонтекстноеМеню" id="91"/>
+									<ExtendedTooltip name="ТекстНазначенияПлатежаРасширеннаяПодсказка" id="160"/>
+								</TextDocumentField>
+								<UsualGroup name="ГруппаНастройки" id="100">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Настройки</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="161"/>
+									<ChildItems>
+										<CheckBoxField name="МесяцПрописью" id="94">
+											<DataPath>Объект.МесяцПрописью</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<EditMode>Directly</EditMode>
+											<ContextMenu name="МесяцПрописьюКонтекстноеМеню" id="95"/>
+											<ExtendedTooltip name="МесяцПрописьюРасширеннаяПодсказка" id="162"/>
+										</CheckBoxField>
+										<CheckBoxField name="ВыводитьСуммуБезКопеек" id="92">
+											<DataPath>Объект.ВыводитьСуммуБезКопеек</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<EditMode>Directly</EditMode>
+											<ContextMenu name="ВыводитьСуммуБезКопеекКонтекстноеМеню" id="93"/>
+											<ExtendedTooltip name="ВыводитьСуммуБезКопеекРасширеннаяПодсказка" id="163"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject._ДемоБанковскиеСчета</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ИспользуетсяБанкДляРасчетов" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Используется банк для расчетов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="КоррСчетБанка" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Корр счет банка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>20</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="НаименованиеБанка" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование банка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ГородБанка" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Город банка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НаименованиеБанкаДляРасчетов" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование банка для расчетов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="КоррСчетБанкаДляРасчетов" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Корр счет банка для расчетов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>20</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ГородБанкаДляРасчетов" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Город банка для расчетов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РучноеИзменениеТекстаНаименованияОрганизации" id="9">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="БИКБанкаДляРасчетов" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>БИК</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>9</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="БИКБанка" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>БИК</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>9</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДеятельностьБанкаПрекращена" id="12">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДеятельностьБанкаНепрямыхРасчетовПрекращена" id="13">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="МестоОткрытия" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Счет открыт</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="НациональнаяВалюта" id="15">
+			<Type>
+				<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СпособУказанияРеквизитовБанка" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты банка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СпособУказанияРеквизитовБанкаРасчетов" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты банка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СВИФТБИК" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>СВИФТ БИК</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СВИФТБИКДляРасчетов" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>СВИФТ БИК</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СправочникБИК" id="20">
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription"/>
+		</Attribute>
+	</Attributes>
+</Form>

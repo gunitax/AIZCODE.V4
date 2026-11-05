@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<HTTPService uuid="14c04c1c-6f46-4810-a368-e47a36138ae4">
+		<Properties>
+			<Name>СчетаМагазина</Name>
+			<Synonym/>
+			<Comment/>
+			<RootURL>objects</RootURL>
+			<ReuseSessions>AutoUse</ReuseSessions>
+			<SessionMaxAge>20</SessionMaxAge>
+		</Properties>
+		<ChildObjects>
+			<URLTemplate uuid="9360e8ea-266e-47d8-b554-9518853828a5">
+				<Properties>
+					<Name>Типы</Name>
+					<Synonym/>
+					<Comment/>
+					<Template>/types</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="4ef13667-55d8-4df7-b8dc-91b89bd1f6d7">
+						<Properties>
+							<Name>Получить</Name>
+							<Synonym/>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>НайтиТипы</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="75967a88-5ee4-4f8a-b018-0af655376205">
+				<Properties>
+					<Name>ОписаниеТипа</Name>
+					<Synonym/>
+					<Comment/>
+					<Template>/type</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="8cefde02-bbab-4a2d-8f24-2d3fbdeaf458">
+						<Properties>
+							<Name>Получить</Name>
+							<Synonym/>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>ОписатьТип</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="0ecedae1-8b28-42b6-9451-fd05c0180710">
+				<Properties>
+					<Name>Поиск</Name>
+					<Synonym/>
+					<Comment/>
+					<Template>/search</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="369b8d2f-8fd3-4609-a1c3-52f312ab76a2">
+						<Properties>
+							<Name>Получить</Name>
+							<Synonym/>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>НайтиОбъекты</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+			<URLTemplate uuid="99130163-0469-4f20-9066-f9f7f8e9d9db">
+				<Properties>
+					<Name>Объект</Name>
+					<Synonym/>
+					<Comment/>
+					<Template>/object</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="f12aa160-2af1-4885-9a02-b32cf0cafa89">
+						<Properties>
+							<Name>Получить</Name>
+							<Synonym/>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>ПрочитатьОбъект</Handler>
+						</Properties>
+					</Method>
+					<Method uuid="36bf112e-0706-4b3a-a4db-899c26277d26">
+						<Properties>
+							<Name>Создать</Name>
+							<Synonym/>
+							<Comment/>
+							<HTTPMethod>POST</HTTPMethod>
+							<Handler>СоздатьОбъект</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+		</ChildObjects>
+	</HTTPService>
+</MetaDataObject>

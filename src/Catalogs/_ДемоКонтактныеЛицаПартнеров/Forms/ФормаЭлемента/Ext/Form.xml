@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="OnWriteAtServer">ПриЗаписиНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Основное" id="75">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основное</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AutoScreenTypeSensitive</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ОсновноеРасширеннаяПодсказка" id="76"/>
+			<ChildItems>
+				<Pages name="Страницы" id="59">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страницы</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="60"/>
+					<ChildItems>
+						<Page name="СтраницаГлавное" id="53">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Главное</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AutoScreenTypeSensitive</Group>
+							<ScrollOnCompress>true</ScrollOnCompress>
+							<ExtendedTooltip name="СтраницаГлавноеРасширеннаяПодсказка" id="54"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаДанныеКонтактногоЛица" id="71">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Данные контактного лица</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаДанныеКонтактногоЛицаРасширеннаяПодсказка" id="72"/>
+									<ChildItems>
+										<InputField name="Наименование" id="1">
+											<DataPath>Объект.Description</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<Wrap>false</Wrap>
+											<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+											<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="23"/>
+										</InputField>
+										<UsualGroup name="ГруппаОсновныеДанныеКонтактногоЛица" id="73">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Основные данные контактного лица</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаОсновныеДанныеКонтактногоЛицаРасширеннаяПодсказка" id="74"/>
+											<ChildItems>
+												<UsualGroup name="ГруппаПартнерРольКонтактногоЛица" id="65">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Партнер и роль контактного лица</v8:content>
+														</v8:item>
+													</Title>
+													<Group>AutoScreenTypeSensitive</Group>
+													<Representation>None</Representation>
+													<United>false</United>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаПартнерРольКонтактногоЛицаРасширеннаяПодсказка" id="66"/>
+													<ChildItems>
+														<InputField name="Владелец" id="3">
+															<DataPath>Объект.Owner</DataPath>
+															<EditMode>Directly</EditMode>
+															<Wrap>false</Wrap>
+															<ContextMenu name="ВладелецКонтекстноеМеню" id="4"/>
+															<ExtendedTooltip name="ВладелецРасширеннаяПодсказка" id="24"/>
+														</InputField>
+														<InputField name="РольКонтактногоЛица" id="5">
+															<DataPath>Объект.РольКонтактногоЛица</DataPath>
+															<EditMode>Directly</EditMode>
+															<Wrap>false</Wrap>
+															<ContextMenu name="РольКонтактногоЛицаКонтекстноеМеню" id="6"/>
+															<ExtendedTooltip name="РольКонтактногоЛицаРасширеннаяПодсказка" id="25"/>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="ГруппаДатыСвязи" id="67">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Даты связи</v8:content>
+														</v8:item>
+													</Title>
+													<Group>AutoScreenTypeSensitive</Group>
+													<Representation>None</Representation>
+													<United>false</United>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаДатыСвязиРасширеннаяПодсказка" id="68"/>
+													<ChildItems>
+														<InputField name="ДатаРегистрацииСвязи" id="9">
+															<DataPath>Объект.ДатаРегистрацииСвязи</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Дата регистрации связи</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>Directly</EditMode>
+															<Wrap>false</Wrap>
+															<ContextMenu name="ДатаРегистрацииСвязиКонтекстноеМеню" id="10"/>
+															<ExtendedTooltip name="ДатаРегистрацииСвязиРасширеннаяПодсказка" id="27"/>
+														</InputField>
+														<InputField name="ДатаПрекращенияСвязи" id="11">
+															<DataPath>Объект.ДатаПрекращенияСвязи</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Дата прекращения связи</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>Directly</EditMode>
+															<Wrap>false</Wrap>
+															<ContextMenu name="ДатаПрекращенияСвязиКонтекстноеМеню" id="12"/>
+															<ExtendedTooltip name="ДатаПрекращенияСвязиРасширеннаяПодсказка" id="28"/>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаКонтактнаяИнформация" id="42">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Контактная информация</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ExtendedTooltip name="ГруппаКонтактнаяИнформацияРасширеннаяПодсказка" id="43"/>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+						<Page name="СтраницаФизическоеЛицо" id="32">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Физическое лицо</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<ScrollOnCompress>true</ScrollOnCompress>
+							<ExtendedTooltip name="СтраницаФизическоеЛицоРасширеннаяПодсказка" id="33"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаДанныеФизическогоЛица" id="63">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Данные физического лица</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AutoScreenTypeSensitive</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаДанныеФизическогоЛицаРасширеннаяПодсказка" id="64"/>
+									<ChildItems>
+										<InputField name="ФизическоеЛицо" id="7">
+											<DataPath>Объект.ФизическоеЛицо</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<Wrap>false</Wrap>
+											<ContextMenu name="ФизическоеЛицоКонтекстноеМеню" id="8"/>
+											<ExtendedTooltip name="ФизическоеЛицоРасширеннаяПодсказка" id="26"/>
+											<Events>
+												<Event name="OnChange">ФизическоеЛицоПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="ФизическоеЛицоДатаРождения" id="37">
+											<DataPath>ФизическоеЛицо.ДатаРождения</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<ContextMenu name="ФизическоеЛицоДатаРожденияКонтекстноеМеню" id="38"/>
+											<ExtendedTooltip name="ФизическоеЛицоДатаРожденияРасширеннаяПодсказка" id="39"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаКонтактнаяИнформацияФизическогоЛица" id="20">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Адреса, телефоны</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<ExtendedTooltip name="ГруппаКонтактнаяИнформацияФизическогоЛицаРасширеннаяПодсказка" id="31"/>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+						<Page name="СтраницаДополнительно" id="69">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дополнительно</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<ScrollOnCompress>true</ScrollOnCompress>
+							<ExtendedTooltip name="СтраницаДополнительноРасширеннаяПодсказка" id="70"/>
+							<ChildItems>
+								<InputField name="Комментарий" id="15">
+									<DataPath>Объект.Комментарий</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Wrap>false</Wrap>
+									<MultiLine>true</MultiLine>
+									<ContextMenu name="КомментарийКонтекстноеМеню" id="16"/>
+									<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="30"/>
+								</InputField>
+								<InputField name="Автор" id="13">
+									<DataPath>Объект.Автор</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Wrap>false</Wrap>
+									<ContextMenu name="АвторКонтекстноеМеню" id="14"/>
+									<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="29"/>
+								</InputField>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject._ДемоКонтактныеЛицаПартнеров</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="НеобходимоОповещение" id="2">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОбъектОснование" id="3">
+			<Type/>
+		</Attribute>
+		<Attribute name="ФизическоеЛицо" id="4">
+			<Type>
+				<v8:Type>cfg:CatalogObject._ДемоФизическиеЛица</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="КонтактнаяИнформацияОписаниеДополнительныхРеквизитов" id="5">
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ИмяРеквизита" id="1">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Вид" id="2">
+					<Type>
+						<v8:Type>cfg:CatalogRef.ВидыКонтактнойИнформации</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Тип" id="3">
+					<Type>
+						<v8:Type>cfg:EnumRef.ТипыКонтактнойИнформации</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЗначенияПолей" id="4">
+					<Type>
+						<v8:Type>v8:ValueListType</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Представление" id="5">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Комментарий" id="6">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЭтоРеквизитТабличнойЧасти" id="7">
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПроверятьКорректность" id="8">
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ПараметрыПодключаемыхКоманд" id="8">
+			<Type/>
+		</Attribute>
+	</Attributes>
+</Form>
