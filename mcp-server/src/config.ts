@@ -77,11 +77,14 @@ export function findDotEnvPath(scriptUrl: string): string | undefined {
  * `OBJECTS_URL` и `OBJECTS_AUTH` имеют приоритет, недостающие значения
  * берутся из `.env`, найденного через findDotEnvPath. `auth` используется
  * как есть (строка уже содержит схему, например `Basic …`).
+ * Переменная окружения, установленная в пустую строку, считается незаданной.
  * Если ни переменные, ни файл не найдены — бросает ошибку.
  */
 export function resolveConfig(env: Record<string, string | undefined>, scriptUrl: string): Config {
-  let baseUrl = env.OBJECTS_URL;
-  let auth = env.OBJECTS_AUTH;
+  // Переменная, установленная в пустую строку, считается незаданной:
+  // переходим к значениям из .env, а без него — к ошибке старта.
+  let baseUrl = env.OBJECTS_URL === '' ? undefined : env.OBJECTS_URL;
+  let auth = env.OBJECTS_AUTH === '' ? undefined : env.OBJECTS_AUTH;
   if (baseUrl === undefined || auth === undefined) {
     const dotenvPath = findDotEnvPath(scriptUrl);
     if (dotenvPath !== undefined) {

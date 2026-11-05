@@ -63,7 +63,7 @@ test('readEnvFile strips UTF-8 BOM before the first key', () => {
   const { root } = makeTmpTree(null);
   try {
     const file = join(root, '.env');
-    writeFileSync(file, '﻿OBJECTS_URL=http://localhost/demo\n', 'utf8');
+    writeFileSync(file, '\uFEFFOBJECTS_URL=http://localhost/demo\n', 'utf8');
     assert.deepEqual(readEnvFile(file), { OBJECTS_URL: 'http://localhost/demo' });
   } finally {
     cleanup(root);
@@ -104,6 +104,35 @@ test('resolveConfig passes auth through verbatim, removing only .env quotes', ()
   try {
     const config = resolveConfig({}, scriptUrl);
     assert.equal(config.auth, 'Basic dXNlcjpwYXNz');
+  } finally {
+    cleanup(root);
+  }
+});
+
+test('resolveConfig treats empty-string env values as unset and throws without .env', () => {
+  const { root, scriptUrl } = makeTmpTree(null);
+  try {
+    assert.throws(
+      () => resolveConfig({ OBJECTS_URL: '', OBJECTS_AUTH: '' }, scriptUrl),
+      (error: unknown) => {
+        assert.ok(error instanceof Error);
+        assert.match(error.message, /OBJECTS_URL/);
+        assert.match(error.message, /src\/tests\/\.env/);
+        return true;
+      },
+    );
+  } finally {
+    cleanup(root);
+  }
+});
+
+test('resolveConfig falls back to .env when env variables are empty strings', () => {
+  const { root, scriptUrl } = makeTmpTree(
+    'OBJECTS_URL=http://from-file/\nOBJECTS_AUTH=Basic from-file\n',
+  );
+  try {
+    const config = resolveConfig({ OBJECTS_URL: '', OBJECTS_AUTH: '' }, scriptUrl);
+    assert.deepEqual(config, { baseUrl: 'http://from-file/', auth: 'Basic from-file' });
   } finally {
     cleanup(root);
   }

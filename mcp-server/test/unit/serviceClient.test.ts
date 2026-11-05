@@ -201,6 +201,8 @@ test('timeout aborts request and returns unavailable quickly', async () => {
   const failure = expectFailure(await client.get('/v1/objects', {}));
   assert.equal(failure.kind, 'unavailable');
   assert.ok(failure.message.startsWith('Сервис объектов недоступен: '));
+  assert.ok(failure.message.includes('истек таймаут 20 мс'));
+  assert.ok(!failure.message.includes('This operation was aborted'));
   assert.equal(calls.length, 1);
   assert.ok(Date.now() - started < 5000, 'тест с таймаутом должен завершиться быстро');
 });
@@ -244,6 +246,18 @@ test('GET encodes q, keeps UUID verbatim and omits empty limit from query', asyn
   );
   assert.equal(new URL(url).searchParams.get('q'), 'Альфа');
   assert.ok(!url.includes('limit'));
+});
+
+test('trailing slashes in baseUrl are stripped so the request URL keeps a single slash', async () => {
+  const calls: RecordedCall[] = [];
+  const client = new ObjectsServiceClient(
+    { baseUrl: 'http://localhost/demo/hs/objects//', auth: 'Basic dXNlcjpwYXNz' },
+    { fetchImpl: mockFetch(200, '{"items":[]}', calls) },
+  );
+  await client.get('/v1/objects', {});
+  assert.equal(calls[0].url, 'http://localhost/demo/hs/objects/v1/objects');
+  await client.post('/v1/objects', {});
+  assert.equal(calls[1].url, 'http://localhost/demo/hs/objects/v1/objects');
 });
 
 test('formatFailure renders path:null details as "(без поля)" lines', () => {

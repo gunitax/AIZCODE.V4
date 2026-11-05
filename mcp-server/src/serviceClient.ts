@@ -63,12 +63,16 @@ function describeError(error: unknown): string {
 
 /** Клиент HTTP-сервиса объектов: get, post и приведение отказов к тексту. */
 export class ObjectsServiceClient {
-  private readonly cfg: Config;
+  private readonly baseUrl: string;
+  private readonly auth: string;
   private readonly timeoutMs: number;
   private readonly fetchImpl: typeof fetch;
 
   constructor(cfg: Config, options?: { timeoutMs?: number; fetchImpl?: typeof fetch }) {
-    this.cfg = cfg;
+    // Завершающие слэши базового адреса снимаются, чтобы путь вида
+    // `http://host/…/objects/` не дал в запросе `//types`.
+    this.baseUrl = cfg.baseUrl.replace(/\/+$/, '');
+    this.auth = cfg.auth;
     this.timeoutMs = options?.timeoutMs ?? DEFAULT_TIMEOUT_MS;
     this.fetchImpl = options?.fetchImpl ?? fetch;
   }
@@ -82,16 +86,16 @@ export class ObjectsServiceClient {
       }
     }
     const query = search.toString();
-    const url = `${this.cfg.baseUrl}${path}${query === '' ? '' : `?${query}`}`;
-    return this.request(url, { method: 'GET', headers: { Authorization: this.cfg.auth } });
+    const url = `${this.baseUrl}${path}${query === '' ? '' : `?${query}`}`;
+    return this.request(url, { method: 'GET', headers: { Authorization: this.auth } });
   }
 
   /** Выполняет POST-запрос с JSON-телом. */
   async post(path: string, body: unknown): Promise<ServiceResult> {
-    const url = `${this.cfg.baseUrl}${path}`;
+    const url = `${this.baseUrl}${path}`;
     return this.request(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: this.cfg.auth },
+      headers: { 'Content-Type': 'application/json', Authorization: this.auth },
       body: JSON.stringify(body),
     });
   }
@@ -117,11 +121,18 @@ export class ObjectsServiceClient {
       const response = await this.fetchImpl(url, { ...init, signal: controller.signal });
       return await this.classify(response);
     } catch (error) {
+      // Прерывание по таймауту узнаваемо по имени ошибки; вместо сырого
+      // текста Node («This operation was aborted») — понятное сообщение
+      // с настроенным значением таймаута.
+      const aborted =
+        typeof error === 'object' && error !== null && (error as { name?: unknown }).name === 'AbortError';
       return {
         ok: false,
         failure: {
           kind: 'unavailable',
-          message: `Сервис объектов недоступен: ${describeError(error)}`,
+          message: aborted
+            ? `Сервис объектов недоступен: истек таймаут ${this.timeoutMs} мс`
+            : `Сервис объектов недоступен: ${describeError(error)}`,
         },
       };
     } finally {
